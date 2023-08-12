@@ -26,11 +26,11 @@ The purpose of the project is to create a smart unified heating system which inc
 # Add devices to Home Assistant
 
 ## Adding Fibaro wall plugs to Home Assistant
-If you’ve already had the Fibaro device paired with Apple HomeKit, you will need to reset it (and if not you can skip this part). To do this: 
+If you've already had the Fibaro device paired with Apple HomeKit, you will need to reset it (and if not you can skip this part). To do this: 
 
 1. Unplug the Fibaro device from the power socket.
 1. Hold down the power button on the Fibaro device and reinsert it into the power socket, while continuing to hold down the power button. The Fibaro device will start cycling through display various colors (green, red, yellow).
-1. When the Fibaro device displays a yellow color (which signifies resetting), let go of the power button and immediately click (and release) it again to confirm that you wish to reset it (briefly display a green color, and then start flashing blue). The Fibaro device will restart, after which it will flash yellow indicating that it’s in paring-mode.
+1. When the Fibaro device displays a yellow color (which signifies resetting), let go of the power button and immediately click (and release) it again to confirm that you wish to reset it (briefly display a green color, and then start flashing blue). The Fibaro device will restart, after which it will flash yellow indicating that it's in paring-mode.
 
 > The Fibaro device will not remain in pairing-mode indefinitely. If it stops flashing yellow, you can simply unplug it and reinsert it into the power socket. After its initial startup routine, it will enter pairing-mode again.
 
@@ -43,7 +43,7 @@ Now, in Home Assistant:
 
 1. Go to: "Settings > devices & services", which should now display the reset Fibaro device which Home Assistant has now been able to discover.
 2. Click the "configure" button.
-3. Enter the "paring code" (you don’t need to type in the dashes) for the Fibaro device, and click "submit".
+3. Enter the "paring code" (you don't need to type in the dashes) for the Fibaro device, and click "submit".
 4. Choose the area in which the Fibaro device is related, e.g. "technical room", and click "finish".
 
 The Fibaro device will now be grouped with other Apple HomeKit devices in a "HomeKit Controller" group.
@@ -84,7 +84,7 @@ Sequence:
 
 1. Device:
     1. Device: `Zone circulation pump`
-    1. Action: `Turn off …`
+    1. Action: `Turn off ...`
 
 
 ## Turn on pump
@@ -111,7 +111,7 @@ Sequence:
 
 1. Device:
     1. Device: `Zone circulation pump`
-    1. Action: `Turn on …`
+    1. Action: `Turn on ...`
 
 
 # Home Assistant automations
@@ -167,7 +167,7 @@ Triggers:
 Actions:
 1. Add action: `Device`
 2. Device: {select the wall plug actuator}
-3. Action: `Turn off …`
+3. Action: `Turn off ...`
 
 
 ## Zone {number} thermostat heating
@@ -176,14 +176,14 @@ This script should exist for each wall plug.
 Triggers:
 1. Add trigger: `State`
 2. Entity: {select the thermostat}
-3. Attribute: "Current action”
+3. Attribute: `Current action`
 4. From: {leave blank}
 5. To: `Heating`
 
 Actions:
 1. Add action: `Device`
 2. Device: {select the wall plug actuator}
-3. Action: `Turn off …`
+3. Action: `Turn off ...`
 
 
 ## Zone {number} start-up
