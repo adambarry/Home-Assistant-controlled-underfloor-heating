@@ -114,9 +114,11 @@ Sequence:
     1. Action: `Turn on ...`
 
 
-# Home Assistant automations
+# Home Assistant automations for circulation pump
 
 ## Zone circulation pump off (script)
+The purpose of this script is to turn off the circulation pump when **all** water circuts are closed (actuators are inactive).
+
 Triggers:
 1. Add trigger: `Template`
 1. Value template:
@@ -136,6 +138,8 @@ Actions:
 
 
 ## Zone circulation pump on (script)
+The purpose of this script is to run the circulation pump when **one or more** water circuts are open (actuators are active).
+
 Triggers:
 1. Add trigger: `Template`
 1. Value template:
@@ -154,8 +158,11 @@ Actions:
 1. Service: `Script: Turn on pump`
 
 
+# Home Assistant automations for each zone
+The automations in this section should exist for each zone, i.e. copy, paste, modify after creating the first one.
+
 ## Zone {number} thermostat idle
-This script should exist for each wall plug.
+The purpose of this automation is to turn off an actuator when the corresponding thermostat stops requesting heat.
 
 Triggers:
 1. Add trigger: `State`
@@ -171,7 +178,7 @@ Actions:
 
 
 ## Zone {number} thermostat heating
-This script should exist for each wall plug.
+The purpose of this scautomationript is to turn on an actuator when the corresponding thermostat is requesting heat.
 
 Triggers:
 1. Add trigger: `State`
@@ -187,7 +194,7 @@ Actions:
 
 
 ## Zone {number} start-up
-This script should exist for each wall plug.
+The purpose of this automation is to register when a said actuator (wall plug) becomes available to Home Assistant, and turn on if the corresponding thermostat is requesting heat.
 
 Triggers:
 1. Add trigger: `State`
@@ -210,7 +217,7 @@ Actions:
 
 
 ## Zone {number} disconnect
-This script should exist for each wall plug.
+The purpose of this automation is to register when a said actuator (wall plug) becomes uavailable to Home Assistant, e.g. if it's disconnected from the its power socket, and run the script to potentially stop the circulation pump (if no water circuts are open).
 
 Triggers:
 1. Add trigger: `Template`
