@@ -1,10 +1,10 @@
 Home Assistant controlled underfloor heating system via Apple HomeKit
 ============
 
-This document will assist you on how to make your own (waterbased) underfloor heating controller powered by Home Assistant, which enables you to use the temperature sensors and wall plugs (for the actuators on the underfloor heating manifold, i.e. the devices responsible for opening and closing each water circut) you want.
+This document will assist you on how to make your own (water-based) underfloor heating controller powered by Home Assistant, which enables you to use the temperature sensors and wall plugs (for the actuators on the underfloor heating manifold, i.e. the devices responsible for opening and closing each water circut) you want.
 
 # Why do I need a smart heating system in the first place?
-In short: Room profiling and weather compensation. Traditional "dumb" heating components react to the current conditions, e.g. turn "off" when the desired temperature is reached or "on" when it's already too cold, which means that they're always "behind". Smart heating systems on the other hand create (or should, at least) a heating profile for each room so that the system knows how long adjustments take to have an effect, and can thus proactively adjust the temperature to better maintain the desired level. In addition, systems which offer wheather compensation can further improve upon the indoor climate by, e.g. turning "off" the heating at the correct time based on rising temperatures in the afternoon, etc.
+In short: Room profiling and weather compensation. Traditional "dumb" heating components react to the current conditions, e.g. turn "off" when the desired temperature is reached or "on" when it's already too cold, which means that they're always lagging behind what is actually needed _right now_. Smart heating systems on the other hand create (or should, at least) a heating profile for each room so that the system knows how long adjustments take to have an effect, and can thus proactively adjust the temperature to better maintain the desired level. In addition, systems which offer wheather compensation can further improve upon the indoor climate by, e.g. turning "off" the heating at the correct time based on rising temperatures in the afternoon, etc.
 
 
 # Purpose and components
@@ -17,7 +17,7 @@ The purpose of the project is to create a smart unified heating system which inc
 
 ... but you can probably make it work with most vendors (for items 2 & 3).
 
-> My outset for this project is my two-storey house which has radiators on the first floor, and waterbased underfloor heating on the ground floor (on in the first floor bathroom):
+> My outset for this project is my two-storey house which has radiators on the first floor, and water-based underfloor heating on the ground floor (on in the first floor bathroom):
   >
   >  - Initially the radiator thermostats were "dumb" Danfoss thermostats, where were quickly replaced with [Tado Smart Radiator Thermostats](https://www.tado.com/dk-en/smart-radiator-thermostat-add-on).
   >  - The underfloor heating manifold and actuators are from Pettinaroli, the controller for the actuators and circulation pump is a no-name 868 MHz thingy, "Funk B 2070-2" (which appears to be used by Altech, Pettinaroli and others), with "dumb" [Altech](https://www.altechcorp.com) wireless thermostats.
