@@ -117,7 +117,7 @@ Sequence:
 # Home Assistant automations for circulation pump
 
 ## Zone circulation pump off (script)
-The purpose of this script is to turn off the circulation pump when **all** water circuts are closed (actuators are inactive).
+The purpose of this script is to turn off the circulation pump when <u>all</u> water circuts are closed (actuators are inactive).
 
 Triggers:
 1. Add trigger: `Template`
@@ -138,7 +138,7 @@ Actions:
 
 
 ## Zone circulation pump on (script)
-The purpose of this script is to run the circulation pump when **one or more** water circuts are open (actuators are active).
+The purpose of this script is to run the circulation pump when <u>one or more</u> water circuts are open (actuators are active).
 
 Triggers:
 1. Add trigger: `Template`
