@@ -52,7 +52,9 @@ The Fibaro device will now be grouped with other Apple HomeKit devices in a "Hom
 
 
 ## Adding Tado wireless temperature sensors to Home Assistant
-Set the Tado bridge into pairing mode and add it to Home Assistant. This too, will be grouped with other Apple HomeKit devices in the "HomeKit Controller" group.
+Set the Tado bridge into pairing mode and add it to Home Assistant. This too, will be grouped with other Apple HomeKit devices in the "HomeKit Controller" group. When the bridge has been added to Home Assistant, all of the connected Tado devices will be available.
+
+> In order to see the Tado devices in Apple's Home app again, you can add a "HomeKit Bridge" to Home Assistant, and choose which "entities" to share. Upon completing the configuration, the selected entities show up as normally in Apple's Home app.
 
 ### Regarding Tado, Home Assistant and Apple HomeKit
 Home Assistant has a built-in plug-in for Tado which controls the said devices via Tado's public API which is available via the Internet, and which has a limited polling-rate which defaults to updating every 5 minutes. By pairing Tado directly with Home Assistant via Home Assistant's "HomeKit Controller", updates from Tado devices are registered instantly in Home Assistant without any external dependencies.
