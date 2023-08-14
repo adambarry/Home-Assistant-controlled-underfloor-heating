@@ -8,19 +8,21 @@ In short: Room profiling and weather compensation. Traditional "dumb" heating co
 
 
 # Purpose and components
-The purpose of the project is to create a smart unified heating system which includes both radiators and underfloor heating, and which can work with the (my) current underfloor heating manifold. In the case of this particular project, the components are:
+The purpose of the project is to create a smart unified heating system which includes both radiators and underfloor heating, and which can work with the (my) current underfloor heating manifold.
+
+> My outset for this project is my two-storey house which has radiators on the first floor, and water-based underfloor heating on the ground floor (and in the first floor bathroom) - totalling underfloor heating 5 zones (water circuts) in all:
+  >
+  >  - Initially the radiator thermostats were "dumb" Danfoss thermostats, where were quickly replaced with [Tado Smart Radiator Thermostats](https://www.tado.com/dk-en/smart-radiator-thermostat-add-on).
+  >  - The underfloor heating manifold and actuators are from Pettinaroli, the controller for the actuators and circulation pump is a no-name 868 MHz thingy, "Funk B 2070-2" (which appears to be used by Altech, Pettinaroli and others), with "dumb" [Altech](https://www.altechcorp.com) wireless thermostats.
+
+In the case of this particular project, the components are:
 
 1. [Home Assistant](https://www.home-assistant.io/) running on a Raspberry Pi for handling automations.
 1. [Wireless Temperature Sensors](https://www.tado.com/dk-en/wireless-temperature-sensor) by Tado for measuring the temperature.
 1. [Wall Plugs](https://www.fibaro.com/en/products/wall-plug/) (Apple HomeKit edition) by Fibaro for powering the actuators and the circulation pump.
 1. Actuators which fit your underfloor heating manifold and which can be powered by the wall plugs. Note that your actuators need to be 230V so that they can be plugged into the wall plugs. 12V actuators will require an adaptor.
 
-... but you can probably make it work with most vendors (for items 2 & 3).
-
-> My outset for this project is my two-storey house which has radiators on the first floor, and water-based underfloor heating on the ground floor (on in the first floor bathroom):
-  >
-  >  - Initially the radiator thermostats were "dumb" Danfoss thermostats, where were quickly replaced with [Tado Smart Radiator Thermostats](https://www.tado.com/dk-en/smart-radiator-thermostat-add-on).
-  >  - The underfloor heating manifold and actuators are from Pettinaroli, the controller for the actuators and circulation pump is a no-name 868 MHz thingy, "Funk B 2070-2" (which appears to be used by Altech, Pettinaroli and others), with "dumb" [Altech](https://www.altechcorp.com) wireless thermostats.
+... but you can probably make it work with most vendors (for items 2 & 3). You need one "wireless temperature sensor" (with Tado you can actually add additional devices which can provide better readings for each room/underfloor heating zone), one "wall plug" and one "actuator" for each underfloor heating zone.
 
 
 # Add devices to Home Assistant
@@ -61,7 +63,7 @@ You need to create some scripts in Home Assistant which can be invoked by automa
 
 
 ## Turn off pump
-This script turns off the pump if its invoked an all of the wall plugs are either `off` or unavailable for some reason, i.e. there's no point in running the circulation pump if no water circuts are open. By including all of the wall plugs in the script, when can simply call the same script from all of the automations which we will do later on.
+This script turns off the pump if its invoked an all of the wall plugs are either `off` or `unavailable` (or `unknown`) for some reason, as there's no point in running the circulation pump if no water circuts are open. By including <ul>all</ul> of the wall plugs in the script, when can simply call the same script from all of the automations which we will do later on.
 
 ### Script
 1. Name: `Turn off pump`
