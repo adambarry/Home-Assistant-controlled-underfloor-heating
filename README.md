@@ -24,6 +24,8 @@ In the case of this particular project, the components are:
 
 ... but you can probably make it work with most vendors (for items 2 & 3). You need one "wireless temperature sensor" (with Tado you can actually add additional devices which can provide better readings for each room/underfloor heating zone), one "wall plug" and one "actuator" for each underfloor heating zone.
 
+> Yes, I know that there is probably a smarter approach than using wall plugs, but I haven't been able to find a relay (e.g. something running [Tasmota](https://tasmota.github.io/docs/)) which fit my needs, specifically 230V for the pump control. And, yes - I have also written to Tado and suggested that they make a controller for underfloor heating, but so for I've had no luck in that direction.
+
 
 # Add devices to Home Assistant
 
