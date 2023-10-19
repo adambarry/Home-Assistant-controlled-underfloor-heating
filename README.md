@@ -41,7 +41,9 @@ If you've already had the Fibaro device paired with Apple HomeKit, you will need
 Now, on your cell phone:
 
 1. Open your cell phones Wi-Fi settings, which should now display the Fibaro device.
-2. Click on the Fibaro device and allow it to connect to your local Wi-Fi network.
+2. Select the Fibaro device and allow it to connect to your local Wi-Fi network.
+
+> If the Fibaro device fails to connect to the Wi-Fi network, try resetting and connecting it to the network again. In one instance, I have had to repeat the process 3-4 times before it connected correctly.
 
 Now, in Home Assistant:
 
