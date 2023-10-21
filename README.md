@@ -173,11 +173,14 @@ The automations in this section should exist for each zone, i.e. copy, paste, mo
 The purpose of this automation is to turn off an actuator when the corresponding thermostat stops requesting heat.
 
 Triggers:
-1. Add trigger: `State`
-2. Entity: {select the thermostat}
-3. Attribute: `Current action`
-4. From: {leave blank}
-5. To: `Idle`
+1. Add trigger: `Template`
+2. Value template:
+
+```
+{{
+  is_state_attr('climate.zone_n_tado_smart_thermostat', "hvac_action", "idle")
+}}
+```
 
 Actions:
 1. Add action: `Device`
@@ -190,15 +193,18 @@ The purpose of this scautomationript is to turn on an actuator when the correspo
 
 Triggers:
 1. Add trigger: `State`
-2. Entity: {select the thermostat}
-3. Attribute: `Current action`
-4. From: {leave blank}
-5. To: `Heating`
+2. Value template:
+
+```
+{{
+  is_state_attr('climate.zone_n_tado_smart_thermostat', "hvac_action", "heating")
+}}
+```
 
 Actions:
 1. Add action: `Device`
 2. Device: {select the wall plug actuator}
-3. Action: `Turn off ...`
+3. Action: `Turn on ...`
 
 
 ## Zone {number} start-up
