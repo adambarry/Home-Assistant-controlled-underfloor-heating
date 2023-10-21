@@ -24,8 +24,9 @@ In the case of this particular project, the components are:
 
 ... but you can probably make it work with most vendors (for items 2 & 3). You need:
 
-1. One "wireless temperature sensor" (with Tado you can actually add additional devices which can provide better readings for each room/underfloor heating zone), one "wall plug".
-1. One "actuator"
+1. One "wireless temperature sensor" (with Tado you can actually add additional devices which can provide better readings for each room/underfloor heating zone).
+1. One "wall plug".
+1. One "actuator".
 
 ... for each underfloor heating zone.
 
