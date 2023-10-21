@@ -69,7 +69,7 @@ You need to create some scripts in Home Assistant which can be invoked by automa
 
 
 ## Turn off pump
-This script turns off the pump if its invoked an all of the wall plugs are either `off` or `unavailable` (or `unknown`) for some reason, as there's no point in running the circulation pump if no water circuts are open. By including <ul>all</ul> of the wall plugs in the script, when can simply call the same script from all of the automations which we will do later on.
+This script turns off the pump if its invoked an all of the wall plugs are either `off` or `unavailable` (or `unknown`) for some reason, as there's no point in running the circulation pump if no water circuts are open. By including <u>all</u> of the wall plugs in the script, when can simply call the same script from all of the automations which we will do later on.
 
 ### Script
 1. Name: `Turn off pump`
