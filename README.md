@@ -10,9 +10,9 @@ In short: Room profiling and weather compensation. Traditional "dumb" heating co
 # Purpose and components
 The purpose of the project is to create a smart unified heating system which includes both radiators and underfloor heating, and which can work with the (my) current underfloor heating manifold.
 
-> My outset for this project is my two-storey house which has radiators on the first floor, and water-based underfloor heating on the ground floor (and in the first floor bathroom) - totalling underfloor heating 5 zones (water circuts) in all:
+> My outset for this project is my two-storey house which has radiators on the first floor, and water-based underfloor heating on the ground floor (and in the first floor bathroom) - totalling 5 underfloor heating zones (water circuts) in all:
   >
-  >  - Initially the radiator thermostats were "dumb" Danfoss thermostats, where were quickly replaced with [Tado Smart Radiator Thermostats](https://www.tado.com/dk-en/smart-radiator-thermostat-add-on).
+  >  - Initially the radiator thermostats were "dumb" Danfoss thermostats, which I quickly replaced with [Tado Smart Radiator Thermostats](https://www.tado.com/dk-en/smart-radiator-thermostat-add-on).
   >  - The underfloor heating manifold and actuators are from Pettinaroli, the controller for the actuators and circulation pump is a no-name 868 MHz thingy, "Funk B 2070-2" (which appears to be used by Altech, Pettinaroli and others), with "dumb" [Altech](https://www.altechcorp.com) wireless thermostats.
 
 In the case of this particular project, the components are:
@@ -22,7 +22,12 @@ In the case of this particular project, the components are:
 1. [Wall Plugs](https://www.fibaro.com/en/products/wall-plug/) (Apple HomeKit edition) by Fibaro for powering the actuators and the circulation pump.
 1. Actuators which fit your underfloor heating manifold and which can be powered by the wall plugs. Note that your actuators need to be 230V so that they can be plugged into the wall plugs. 12V actuators will require an adaptor.
 
-... but you can probably make it work with most vendors (for items 2 & 3). You need one "wireless temperature sensor" (with Tado you can actually add additional devices which can provide better readings for each room/underfloor heating zone), one "wall plug" and one "actuator" for each underfloor heating zone.
+... but you can probably make it work with most vendors (for items 2 & 3). You need:
+
+1. One "wireless temperature sensor" (with Tado you can actually add additional devices which can provide better readings for each room/underfloor heating zone), one "wall plug".
+1. One "actuator"
+
+... for each underfloor heating zone.
 
 > Yes, I know that there is probably a smarter approach than using wall plugs, but I haven't been able to find a relay (e.g. something running [Tasmota](https://tasmota.github.io/docs/)) which fit my needs, specifically 230V for the pump control. And, yes - I have also written to Tado and suggested that they make a controller for underfloor heating, but so for I've had no luck in that direction.
 
