@@ -4,13 +4,13 @@ Home Assistant controlled underfloor heating system via Apple HomeKit
 This document will assist you on how to make your own (water-based) underfloor heating controller powered by Home Assistant, which enables you to use the temperature sensors and wall plugs (for the actuators on the underfloor heating manifold, i.e. the devices responsible for opening and closing each water circut) you want.
 
 # Why do I need a smart heating system in the first place?
-In short: Room profiling and weather compensation. Traditional "dumb" heating components react to the current conditions, e.g. turn "off" when the desired temperature is reached or "on" when it's already too cold, which means that they're always lagging behind what is actually needed _right now_. Smart heating systems on the other hand create (or should, at least) a heating profile for each room so that the system knows how long adjustments take to have an effect, and can thus proactively adjust the temperature to better maintain the desired level. In addition, systems which offer wheather compensation can further improve upon the indoor climate by, e.g. turning "off" the heating at the correct time based on rising temperatures in the afternoon, etc.
+In short: You need a smart heating system in order to have room profiling and weather compensation. Traditional "dumb" heating components react to the current conditions, e.g. turn "off" when the desired temperature is reached or "on" when it's already too cold, which means that they're always lagging behind what is actually needed _right now_. Smart heating systems on the other hand create (or should, at least) a heating profile for each room so that the system knows how long adjustments take to have an effect, and can thus proactively adjust the temperature to better maintain the desired level. In addition, systems which offer wheather compensation can further improve upon the indoor climate by, e.g. turning "off" the heating at the correct time based on rising temperatures in the afternoon, etc.
 
 
 # Purpose and components
 The purpose of the project is to create a smart unified heating system which includes both radiators and underfloor heating, and which can work with the (my) current underfloor heating manifold.
 
-> My outset for this project is my two-storey house which has radiators on the first floor, and water-based underfloor heating on the ground floor (and in the first floor bathroom) - totalling 5 underfloor heating zones (water circuts) in all:
+> My outset for this project is my two-storey house which has radiators on the first floor, and water-based underfloor heating on the ground floor (and in the first floor bathroom) - totalling 4 radiators and 5 underfloor heating zones (water circuts) in all:
   >
   >  - Initially the radiator thermostats were "dumb" Danfoss thermostats, which I quickly replaced with [Tado Smart Radiator Thermostats](https://www.tado.com/dk-en/smart-radiator-thermostat-add-on).
   >  - The underfloor heating manifold and actuators are from Pettinaroli, the controller for the actuators and circulation pump is a no-name 868 MHz thingy, "Funk B 2070-2" (which appears to be used by Altech, Pettinaroli and others), with "dumb" [Altech](https://www.altechcorp.com) wireless thermostats.
@@ -39,10 +39,10 @@ In the case of this particular project, the components are:
 If you've already had the Fibaro device paired with Apple HomeKit, you will need to reset it (and if not you can skip this part). To do this: 
 
 1. Unplug the Fibaro device from the power socket.
-1. Hold down the power button on the Fibaro device and reinsert it into the power socket, while continuing to hold down the power button. The Fibaro device will start cycling through display various colors (green, red, yellow).
-1. When the Fibaro device displays a yellow color (which signifies resetting), let go of the power button and immediately click (and release) it again to confirm that you wish to reset it (briefly display a green color, and then start flashing blue). The Fibaro device will restart, after which it will flash yellow indicating that it's in paring-mode.
+1. Hold down the power button on the Fibaro device and reinsert it into the power socket, while continuing to hold down the power button. The Fibaro device will start cycling through its various colors (green, red, yellow).
+1. When the Fibaro device displays a yellow color (which signifies resetting), let go of the power button and immediately click (and release) it again to confirm that you wish to reset it (after which it will briefly display a green color, and then start flashing blue). The Fibaro device will restart, after which it will flash yellow indicating that it's in paring-mode.
 
-> The Fibaro device will not remain in pairing-mode indefinitely. If it stops flashing yellow, you can simply unplug it and reinsert it into the power socket. After its initial startup routine, it will enter pairing-mode again.
+> The Fibaro device will not remain in pairing-mode indefinitely. If it stops flashing yellow, you can simply unplug it and reinsert it into the power socket. After its initial startup routine, it will automatically enter pairing-mode again.
 
 Now, on your cell phone:
 
@@ -75,7 +75,7 @@ You need to create some scripts in Home Assistant which can be invoked by automa
 
 
 ## Turn off pump
-This script turns off the pump if its invoked an all of the wall plugs are either `off` or `unavailable` (or `unknown`) for some reason, as there's no point in running the circulation pump if no water circuts are open. By including <u>all</u> of the wall plugs in the script, when can simply call the same script from all of the automations which we will do later on.
+This script turns off the pump if its invoked and all of the wall plugs are either `off` or `unavailable` (or `unknown`) for some reason, as there's no point in running the circulation pump if no water circuts are open. By including <u>all</u> of the wall plugs in the script, when can simply call the same script from all of the automations which we will do later on.
 
 ### Script
 1. Name: `Turn off pump`
