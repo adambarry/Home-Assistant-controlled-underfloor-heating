@@ -64,7 +64,7 @@ By default, Waveshare's control-unit comes preconfigured with its IP-address set
 
 ... and you're done.
 
-## Modify contro-unit using "VirCom"
+## Modify control-unit using "VirCom"
 If modification via the built-in web-server doesn't work for you, you can head to [control unit's support page](https://www.waveshare.com/wiki/Modbus_POE_ETH_Relay_(B)) and download the [VirCom configuration software](https://files.waveshare.com/upload/4/42/VirCom_en.rar) for Microsoft Windows. Once you've got the software unpacked, run it and:
 
 1. From the main screen, click "device". This will open up the "device management" dialog and locate the device on your network.
