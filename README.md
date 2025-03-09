@@ -475,7 +475,7 @@ Triggers:
 
 Actions:
 1. Add action: `Switch: Turn off`
-2. Choose entity: {select the wall plug actuator}
+2. Choose entity: {select the corresponding relay switch}
 
 
 ## Zone {number} thermostat heating
@@ -493,7 +493,7 @@ Triggers:
 
 Actions:
 1. Add action: `Switch: Turn on`
-2. Choose entity: {select the wall plug actuator}
+2. Choose entity: {select the corresponding relay switch}
 
 
 ## Zone {number} start-up
@@ -501,7 +501,7 @@ The purpose of this automation is to register when a said actuator (wall plug) b
 
 Triggers:
 1. Add trigger: `State`
-1. Entity: {select the wall plug actuator}
+1. Entity: {select the corresponding relay switch}
 1. From: `Unavailable`
 
 Conditions:
@@ -515,8 +515,8 @@ Conditions:
 ```
 
 Actions:
-1. Add action: `Device`
-1. Action: `Turn on ...`
+1. Add action: `Switch: Turn on`
+    1. Choose entity: {select the corresponding relay switch}
 
 
 ## Zone {number} disconnect
