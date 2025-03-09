@@ -26,7 +26,7 @@ In the case of this particular project, the components are:
 
     > If you don't have a switch which supports PoE, you can either acquire a PoE-adapter to put between your switch and the control-unit, or you can acquire a `2.1 mm` DC power-adapter in the 7-36 Volt range, e.g. `12V 27W 2.25A`, as the control-unit supports a wide range of options.
     
-    > Of ALL the other control-units I have researched only a few support **[Modbus TCP](https://en.wikipedia.org/wiki/Modbus)** and they all do so over WiFi, which naturally entails, that if changes to the wireless network occur, e.g. the network name or password, your underfloor heating stops working. Hence, my preference for wired Ethernet.
+    > Of ALL the *other* control-units I have researched only a few support **[Modbus TCP](https://en.wikipedia.org/wiki/Modbus)** and they all do so over WiFi, which naturally entails, that if changes to the wireless network occur, e.g. the network name or password, your underfloor heating stops working. Hence, my preference for wired Ethernet.
 
     > Note that the first of these control-units I bought (from a reseller in another country, hence no return) was defective: It was clarly possible for Home Assistant (VirCom etc., see below) to communicate with it, but the communication didn't change the state of the relays. Hence, I bought a couple more relays directly from [Waveshare](https://www.waveshare.com) and they work as intended.
 
