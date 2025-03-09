@@ -1,7 +1,7 @@
 Home Assistant controlled underfloor heating system via Apple HomeKit
 ============
 
-This document will assist you on how to make your own (water-based) underfloor heating controller powered by Home Assistant, which enables you to use the temperature sensors and wall plugs (for the actuators on the underfloor heating manifold, i.e. the devices responsible for opening and closing each water circut) you want.
+This document will assist you on how to make your own (water-based) underfloor heating controller powered by Home Assistant, which enables you to use the temperature sensors and relays (for the actuators on the underfloor heating manifold, i.e. the devices responsible for opening and closing each water circut) you want.
 
 
 # Why do I need a smart heating system in the first place?
@@ -30,7 +30,7 @@ In the case of this particular project, the components are:
 
     > Note that the first of these control-units I bought (from a reseller in another country, hence no return) was defective: It was clarly possible for Home Assistant (VirCom etc., see below) to communicate with it, but the communication didn't change the state of the relays. Hence, I bought a couple more relays directly from [Waveshare](https://www.waveshare.com) and they work as intended.
 
-1. Actuators which fit your underfloor heating manifold and which can be powered by the wall plugs. Note that your actuators need to be 230V so that they can be plugged into the wall plugs. 12V actuators will require an adaptor.
+1. Actuators which fit your underfloor heating manifold and which can be powered by the relays. Note that your actuators need to be 230V so that they can be plugged into the relays. 12V actuators will require an adaptor.
 
 ... but you can probably make it work with most vendors (for items 2 & 3). What you essentially need is:
 
@@ -355,7 +355,7 @@ You need to create some scripts in Home Assistant which can be invoked by automa
 
 
 ## Turn off pump
-This script turns off the pump if its invoked and all of the wall plugs are either `off` or `unavailable` (or `unknown`) for some reason, as there's no point in running the circulation pump if no water circuts are open. By including <u>all</u> of the wall plugs in the script, when can simply call the same script from all of the automations which we will do later on.
+This script turns off the pump if its invoked and all of the relays are either `off` or `unavailable` (or `unknown`) for some reason, as there's no point in running the circulation pump if no water circuts are open. By including <u>all</u> of the relays in the script, when can simply call the same script from all of the automations which we will do later on.
 
 ### Script
 1. Name: `Turn off pump`
@@ -381,7 +381,7 @@ Sequence:
 
 
 ## Turn on pump
-This script turns on the pump if its invoked and one or more of the wall plugs are `on`, i.e. we want the pump to circulate the water when one or more water circuts are open. Again, by including all of the wall plugs in the script, when can simply call the same script from all of the automations which we will do later on.
+This script turns on the pump if its invoked and one or more of the relays are `on`, i.e. we want the pump to circulate the water when one or more water circuts are open. Again, by including all of the relays in the script, when can simply call the same script from all of the automations which we will do later on.
 
 ### Script
 1. Name: `Turn on pump`
@@ -426,7 +426,7 @@ Triggers:
 }}
 ```
 
-Include a line for each wall plug.
+Include a line for each relay.
 
 Actions:
 1. Add action: `Call service`
@@ -450,7 +450,7 @@ Triggers:
 }}
 ```
 
-Include a line for each wall plug.
+Include a line for each relay.
 
 Actions:
 1. Add action: `Call service`
@@ -497,7 +497,7 @@ Actions:
 
 
 ## Zone {number} start-up
-The purpose of this automation is to register when a said actuator (wall plug) becomes available to Home Assistant, and turn on if the corresponding thermostat is requesting heat.
+The purpose of this automation is to register when a said actuator (relay) becomes available to Home Assistant, and turn on if the corresponding thermostat is requesting heat.
 
 Triggers:
 1. Add trigger: `State`
@@ -520,7 +520,7 @@ Actions:
 
 
 ## Zone {number} disconnect
-The purpose of this automation is to register when a said actuator (wall plug) becomes uavailable to Home Assistant, e.g. if it's disconnected from the its power socket, and run the script to potentially stop the circulation pump (if no water circuts are open).
+The purpose of this automation is to register when a said actuator (relay) becomes uavailable to Home Assistant, e.g. if it's disconnected from the its power socket, and run the script to potentially stop the circulation pump (if no water circuts are open).
 
 Triggers:
 1. Add trigger: `Template`
@@ -528,7 +528,7 @@ Triggers:
 
 ```
 {{
-  states('switch.wall_plug_1_wall_plug_outlet') in ['unavailable', 'unknown']
+  states('binary_sensor.relay_1_status') in ['unavailable', 'unknown']
 }}
 ```
 
