@@ -1,7 +1,7 @@
 Home Assistant controlled underfloor heating system via Apple HomeKit
 ============
 
-This document will assist you on how to make your own (water-based) underfloor heating controller powered by Home Assistant, which enables you to use the temperature sensors and relays (for the actuators on the underfloor heating manifold, i.e. the devices responsible for opening and closing each water circut) you want.
+This document will assist you in making your own (water-based) underfloor heating controller powered by Home Assistant, which enables you to use the temperature sensors and relays (for the actuators on the underfloor heating manifold, i.e. the devices responsible for opening and closing each water circut) you want.
 
 
 # Why do I need a smart heating system in the first place?
