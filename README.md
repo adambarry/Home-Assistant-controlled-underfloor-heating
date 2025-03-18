@@ -21,6 +21,7 @@ In the case of this particular project, the components are:
 1. [Home Assistant](https://www.home-assistant.io/) running on a Raspberry Pi for handling automations.
 
 1. [Wireless Temperature Sensors](https://www.tado.com/dk-en/wireless-temperature-sensor) by Tado for measuring the temperature.
+    > The ones I use are "Tado V3+" editions, but as long as your sensors support Apple HomeKit, you should be good to go.
 
 1. [Waveshare 8-channel Ethernet relay module (B) with digital inputs](https://www.waveshare.com/modbus-poe-eth-relay-b.htm.htm) (hereafter referred to as the "control-unit") for controlling the actuators and circulation pump. I have specifically chosen this version as it support "power over Ethernet" (PoE), which means that although each circut needs its own power-supply, the relay itself can be powered and controlled via an Ethernet-cable, thus eliminating the need for a dedicated powersupply for the control-unit.
 
